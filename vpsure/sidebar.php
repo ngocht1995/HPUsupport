@@ -5,8 +5,8 @@
 			  </a> </div>		  
 		    <div class="menu">
 		      <ul id="menu" >
-		        <li id="menu-home" ><a href="index.html"><i class="fa fa-tachometer"></i><span>Trang chủ</span></a></li>
-		    	<li><a href="#"><i class="fa fa-search"></i><span>Tra cứu thông tin</span></a></li>
+		        <li id="menu-home" ><a href="#"><i class="fa fa-tachometer"></i><span>Trang chủ</span></a></li>
+		    	<li><a href="tracuutt"><i class="fa fa-search"></i><span>Tra cứu thông tin</span></a></li>
 		        <li><a href="#"><i class="fa fa-calendar-check-o"></i><span>Thời khóa biểu</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		        	 <ul id="menu-academico-sub" >
 		        	 	<li><a href="http://hpu.edu.vn/thoikhoabieu/Tkb_GiaoVien/DanhSachGiaoVien.html">Thời khóa biểu giáo viên</a></li>
@@ -14,7 +14,7 @@
 			            <li><a href="http://hpu.edu.vn/thoikhoabieu/Tkb_PhongHoc/DanhSachPhongHoc.html">Thời khóa biểu phòng học</a></li>
 		             </ul>
 		        </li>      
-		        <li><a href="#"><i class="fa fa-bell-o"></i><span>Thông báo</span></a></li>
+		        <li><a href="notice_message/ds_notice.php"><i class="fa fa-bell-o"></i><span>Thông báo</span></a></li>
 		        <li><a href="#"><i class="fa fa-comments"></i><span>Trợ giúp</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		        	 <ul id="menu-academico-sub" >
 		        	 	<li id="" ><a href="inbox.html">Câu hỏi thường gặp</a></li>
@@ -43,6 +43,6 @@ $(".sidebar-icon").click(function() {
     setTimeout(function() {
       $("#menu span").css({"position":"relative"});
     }, 400);
-  }                           
+  }
 });
 </script>

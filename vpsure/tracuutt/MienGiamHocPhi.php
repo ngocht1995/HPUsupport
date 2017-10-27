@@ -10,16 +10,17 @@
              $_SESSION['result'] = $result;
              $tong_tien=0;
           ?>
-                    <center>           
-                    <h2 style="font-weight: bold;color:black">CÁC KHOẢN SINH VIÊN ĐƯỢC MIỄN GIẢM </h2>  
-                    </center>
+<div id="result" class="tbl_bangdiem">
+                    <center>  <br>         
+                    <h4 style="font-weight: bold;">CÁC KHOẢN SINH VIÊN ĐƯỢC MIỄN GIẢM </h4>  
+                    </center><br>
                <form target="_blank" action="export_cksvct.php" method="post" onsubmit='
                 $("#datatodisplay").val($("<div>").append( $("#ReportTable").eq(0).clone() ).html()); '>
                 <div id="ReportTable" >
-                  <table cellpadding="1" cellspacing="0" border="1" class="display dataTable" id="allan">
-                    <thead>
+                <table  cellpadding="1" cellspacing="0" border="1" class="display dataTable" id="allan">
+                    <thead style="background-color:rgba(4, 99, 241, 0.73);color:white">
                             <tr> 
-                                    <th style="text-align: center"  align="center">STT</th>
+                                    <th style="text-align: center"  class="center">STT</th>
                                     <th  style="text-align: center" >Năm học</th>
                                     <th  style="text-align: center" >Nội dung</th>
                                     <th  style="text-align: center" >Số tiền miễn giảm</th>      
@@ -32,10 +33,10 @@
                    $tong_tien= $tong_tien+($result['SoTienMienGiam']);
                    ?>
                               <tr class="gradeX">
-                                    <td align="center"><?php echo '1'; ?></td>
-                                    <td align="center"><?php echo $result['NamHoc']; ?></td>
+                                    <td class="center"><?php echo '1'; ?></td>
+                                    <td class="center"><?php echo $result['NamHoc']; ?></td>
                                     <td><?php echo $result['ghiChu']; ?></td>
-                                    <td align="center"><?php echo display_number($result['SoTienMienGiam'])." (VNĐ)"; ?></td>
+                                    <td class="center"><?php echo display_number($result['SoTienMienGiam'])." (VNĐ)"; ?></td>
                                 </tr>
                  <?php } else
                          {  
@@ -44,16 +45,16 @@
                     $tong_tien= $tong_tien+($result[$i]['SoTienMienGiam']);
                             ?>
                                <tr class="gradeX">
-                                    <td align="center"><?php echo $i+1; ?></td>
-                                    <td align="center"><?php echo $result[$i]['NamHoc']; ?></td>
+                                    <td class="center"><?php echo $i+1; ?></td>
+                                    <td class="center"><?php echo $result[$i]['NamHoc']; ?></td>
                                     <td><?php echo $result[$i]['ghiChu']; ?></td>
-                                    <td align="center"><?php echo display_number($result[$i]['SoTienMienGiam'])." (VNĐ)"; ?></td>
+                                    <td class="center"><?php echo display_number($result[$i]['SoTienMienGiam'])." (VNĐ)"; ?></td>
                                 </tr>
                             <?php } 
                  } ?>
                      </tbody>
                      <tfoot>
-                                <tr>
+                                <tr style="color:white;background-color: green">
                                     <th colspan="3">Tổng tiền</th>
                                     <th><?php echo display_number($tong_tien); ?></th>
                                 </tr>
@@ -62,12 +63,10 @@
                 </div>
             </form>
                 <div style="clear:both">
-
+</div>
             <?php } else { ?>
-            <div>
-            <center>
-            <h2 style="line-height:130px;color:red;">Sinh viên không thuộc diện được miễn giảm!</h2>
-            </center>
+            <div class="notice">          
+            <h2 style="color:red;">Sinh viên không thuộc diện được miễn giảm!</h2>
             </div>
 
             <?php } ?>

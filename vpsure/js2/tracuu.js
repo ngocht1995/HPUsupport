@@ -1,6 +1,6 @@
 $(document).ready(function(){
      $("#atracuu<?php echo $arwrk[$i]['services_id']; ?>").click(function () {
-       $("#htht").html('<center style="margin-top:100px"><img  src="../images/common/ajax-loading.gif">...process...</center>');
+       $("#htht").html('<center style="margin-top:100px"><img  src="../images/common/ajax-loading.gif">...Đang tải...</center>');
        $.ajax({
             type: "POST",
             data: "msv="+$("#txtmsv").val()+"&ser_code=" + <?php echo $arwrk[$i]['services_id']; ?>,

@@ -48,39 +48,7 @@ function objectToArray($d) {
     global $array;
     return strcmp($a, $b);
 }
-use \Httpful\Request;
-if ($msv <> "" || $msv <>null )
-{   
-           
-            $uri = "http://thamdo.hpu.edu.vn/api/v1/thamdo/".$msv."";
-            $response = Request::get($uri)->send();
-            $array= $response->body;
-            $monhocthamdo=objectToArray($array) ;
-            //echo '<pre>'; print_r($monhocthamdo);echo '</pre>';
-             $_SESSION['monhocthamdo'] = $monhocthamdo;
-             
-             
-          $conn = ew_Connect();
-    // xac dinh tham do hay 
-    $today = date("Y-m-d H:i:s");    
-    $sSqlWrk = "Select * From `t_setting` Where (set_id=2) And (set_active=1) And (t_setting.set_date_start<='$today') And (t_setting.set_date_end>='$today')";   
-    $rswrk = $conn->Execute($sSqlWrk);
-    $arwrk = ($rswrk) ? $rswrk->GetRows() : array();
-    if ($rswrk) $rswrk->Close();
-    $rowswrk = count($arwrk);
-    if ($rowswrk){
-        $thamdo=true;
-        $trangthai_thamdo = $arwrk[0]['set_status'];
-       $GLOBALS['content_ax'] = $arwrk[0]['set_description'];
-    } else 
-    {
-        $thamdo=false;
-        $trangthai_thamdo = '';
-        $content_ax ='';
-      }        
-             
-} 
-// add thong tin tham do     
+use \Httpful\Request;   
 $result= Get_arrayservice($msv,'ThongTinSinhVien');
 if (isset($result['ThongTinSinhVienResult']['diffgram']['DocumentElement']['ThongTinSinhVien'])) 
    { 
@@ -106,13 +74,13 @@ if (isset($result['ThongTinSinhVienResult']['diffgram']['DocumentElement']['Thon
   
  ?>
 <!-- <img src="<?php// echo $file ?>"> -->
-   <div  class="thongtin" style="position: relative;bottom:500px;left:400px;border-radius: 15px 50px 30px;max-width: 500px;max-height: 300px;background-image:url('../images/anhthe.jpg');background-size:100%;">
-	<img class="sinhvien" style="width: 135px;height:180px;position: relative;right:145px;border-radius: 25px;border:solid black; top:12px" src="<?php echo $file ?>" /><br/>
-    <h2 style="color:white;position: relative;top:25px;right:140px "><?php echo $msv; ?></h2>
+   <div  class="thongtin">
+	<img class="anhthe" src="<?php echo $file ?>" /><br/>
+    <h2 class="msv" ><?php echo $msv; ?></h2>
 
                                     
-	<div class="sinhvien" align="left" style="position: relative;bottom:110px;left:230px">
-					<span style="font-size: 20px"><b> <?php echo $result['HoDem']." ".$result['Ten']; ?></b></span>                   
+	<div class="sinhvien" align="left" >
+					<span class="hoten"><b> <?php echo $result['HoDem']." ".$result['Ten']; ?></b></span>                   
 					<br/>Ngày sinh: <span><?php echo $result['NgaySinh']; ?></span>
 					<br/>Giới tính: <span><?php echo $result['GioiTinh']; ?></span>
                     <br/>Lớp: <span><?php echo $result['MaLop'];?></span></li>
@@ -161,10 +129,13 @@ $(document).ready(function(){
  Get_Survey($thamdo,$trangthai_thamdo);//
 } else { ?>
 
-<div class="thongtin" style="position: relative;bottom:500px;left:400px;border-radius: 15px 50px 30px;max-width: 500px;max-height: 300px;">
+<div id="thongtin" class="error">
     <center>
-    <h2 style="color:red;">Chưa nhập mã sinh viên hoặc mã sinh viên không tồn tại !</h2>
-    </center>
+        <img src="../images/error.jpg" alt="stop" class="error_picture">
+        <h1 style="color:red">Oops!!</h1>
+    <h2 style="color:red;">Mã sinh viên không có trong cơ sở dữ liệu :( </h2><br>
+  </center>
+    
 </div>
 
 <?php } ?>

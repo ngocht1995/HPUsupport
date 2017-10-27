@@ -47,12 +47,11 @@ div.divimg {
     height:10px;
 }
 </style>
+<link href="../css/font-awesome.css" rel="stylesheet"> 
 <div style="clear: both"></div>
 
-
-<h1 style="font-size: 14px">DANH MỤC THÔNG BÁO</h1>
-
 <div style="clear: both"></div>
+ <div style="position: relative;top:150px;background-color:rgba(33, 33, 33, 0.75);font-size: 15px;height: 30px;text-align: center;border-radius: 15px;padding-top: 10px;width: 1100px">
 <?php
 $sSqlWrk = "Select * From intro_subject Where (chuyenmuc_belongto = 0) And (trang_thai=1)";
  // echo $sSqlWrk;
@@ -61,8 +60,8 @@ $arwrk = ($rswrk) ? $rswrk->GetRows() : array();
 if ($rswrk) $rswrk->Close();
 $rowswrk = count($arwrk);
 ?>
-<div id="divMenu">
-       <div id="firstpane" class="menu_list"> <!--Code for menu starts here-->
+
+       
   <?php
     For ($i=0;$i < $rowswrk;$i++)
             {
@@ -77,13 +76,12 @@ $rowswrk = count($arwrk);
                 $rows = count($ar);
   
   ?>              
-                <p class="menu_head"><?php echo $title; ?></p> 
                 <?php
                 
                    if((KillChars(htmlspecialchars($_GET['belongto'],ENT_QUOTES)) <> null) && ($arwrk[$i]['chuyenmuc_id'] == KillChars(htmlspecialchars($_GET['belongto'],ENT_QUOTES))))
                    { $style_active="style=\"display: block;\"";  } else  { $style_active="";}
                 ?>
-                    <div <?php echo $style_active?> class="menu_body"> 
+                     
                    <?php
                     For ($j=0;$j < $rows;$j++)
                      {
@@ -92,11 +90,14 @@ $rowswrk = count($arwrk);
                      if((KillChars(htmlspecialchars($_GET['categories_id'],ENT_QUOTES)) <> null) && ($ar[$j]['chuyenmuc_id'] == KillChars(htmlspecialchars($_GET['categories_id'],ENT_QUOTES))))
                      { $style_activelevel="style=\"color: #fc9603;\"";  } else  { $style_activelevel="";}
                     ?>
-                       <a <?php echo $style_activelevel  ?>  href="<?php echo $url1 ?>"><?php echo $title1; ?></a>   
-                     <?php } ?>
-                    <!-- end menu body--> </div>
+                   
+                       <a <?php echo $style_activelevel  ?> href="<?php echo $url1 ?>">&nbsp; -<?php echo $title1; ?>  &nbsp; &nbsp;    </a>   
+                                         <?php } ?>
+                 
+                    <!-- end menu body-->  </div>
+
                <div class="divimg"></div> 
      <?php } ?>
-    </div><!-- end code menu-->
+    <!-- end code menu-->
 					  
-<!-- END divMenu--></div> 
+<!-- END divMenu-->

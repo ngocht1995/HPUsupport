@@ -8,10 +8,10 @@
             // echo '<pre>'; print_r($result);echo '</pre>';
              $_SESSION['result'] = $result;
           ?>
-
+<div id="result" class="tbl_bangdiem">
 <div id="ReportTable" >
-<table style="width: 100%;margin-bottom: 20px;">
-    <tr>
+<table style="width: 80%;margin-bottom: 20px;position: relative;left: 100px;color:white">
+    <tr><br>
         <td colspan="4" style="text-align: center">
             <h2 class="phead_tientrinh">
                 <b> Học Bổng Sinh Viên </b>
@@ -20,28 +20,29 @@
         </td>
     </tr>
     <tr>
-        <td><span style="color: black;font-weight: bold; " > Họ tên:</span></td><td><?php echo $_SESSION['arraythongtin']['HoTen'] ?></td>
-        <td><span style="color: black;font-weight: bold;">Tình trạng:</span></td><td> <?php echo $_SESSION['arraythongtin']['TinhTrang'] ?></td>
+        <td><span style="font-weight: bold; " > Họ tên:</span></td><td><?php echo $_SESSION['arraythongtin']['HoTen'] ?></td>
+        <td><span style="font-weight: bold;">Tình trạng:</span></td><td> <?php echo $_SESSION['arraythongtin']['TinhTrang'] ?></td>
     </tr>
     <tr>
-        <td><span style="color: black;font-weight: bold">Ngày sinh:</span></td><td> <?php echo $_SESSION['arraythongtin']['NgaySinh'] ?></td>
-        <td><span  style="color: black;font-weight: bold">Giới tính:</span></td><td> <?php echo $_SESSION['arraythongtin']['GioiTinh'] ?></td>
+        <td><span style="font-weight: bold;">Ngày sinh:</span></td><td> <?php echo $_SESSION['arraythongtin']['NgaySinh'] ?></td>
+        <td><span  style="font-weight: bold;">Giới tính:</span></td><td> <?php echo $_SESSION['arraythongtin']['GioiTinh'] ?></td>
     </tr>
     <tr>
-        <td><span style="color: black;font-weight: bold">Ngành học:</span></td><td> <?php echo $_SESSION['arraythongtin']['TenNganh'] ?></td>
-        <td><span style="color: black;font-weight: bold">Khóa học:</span></td><td> <?php echo $_SESSION['arraythongtin']['TenKhoaHoc'] ?></td>
+        <td><span style="font-weight: bold;">Ngành học:</span></td><td> <?php echo $_SESSION['arraythongtin']['TenNganh'] ?></td>
+        <td><span style="font-weight: bold;">Khóa học:</span></td><td> <?php echo $_SESSION['arraythongtin']['TenKhoaHoc'] ?></td>
     </tr>
      <tr>
-        <td style="width:80PX;"><span style="color: black;font-weight: bold" class="phead_tientrinh">Hệ đào tạo:</span></p></td><td> <?php echo $_SESSION['arraythongtin']['TenHeDaoTao'] ?></td>
-        <td style="width: 130PX;"><span style="color: black;font-weight: bold" class="phead_tientrinh">Hình thức đào tạo:</span></td><td> <?php echo $_SESSION['arraythongtin']['DaoTao'] ?></td>
+        <td style="width:80PX;"><span style="font-weight: bold;" class="phead_tientrinh">Hệ đào tạo:</span></p></td><td> <?php echo $_SESSION['arraythongtin']['TenHeDaoTao'] ?></td>
+        <td style="width: 130PX;"><span style="font-weight: bold;" class="phead_tientrinh">Hình thức đào tạo:</span></td><td> <?php echo $_SESSION['arraythongtin']['DaoTao'] ?></td>
     </tr>
     
 </table>
                <form target="_blank"  method="post">
 
  
-                    <table cellpadding="1" cellspacing="0" border="1" class="display dataTable" id="allan" style="font-size: 12px;width: 100%;">
-                    <thead>
+                           
+      <table  cellpadding="1" cellspacing="0" border="1" class="display dataTable" id="allan" >
+                    <thead style="background-color:rgba(4, 99, 241, 0.73);color:white">
                             <tr> 
                                      <th style="text-align: center" class="center"> Năm học  </th>
                                     <th style="text-align: center">Điểm trung bình <br/> trung học tập</th>
@@ -90,11 +91,12 @@
                 <div style="clear:both">
 
             <?php } else { ?>
-            <div>
+             <div class="notice">
              <center>
-            <h2 style="line-height:130px;color:red;">Dữ liệu chưa được cập nhật !</h2>
+               <img src="../images/stop.png" alt="stop" class="notice_picture">
+            <h2 style="color:red;">Dữ liệu chưa được cập nhật !</h2>
              </center>
             </div>
-
+</div>
             <?php } ?>
       <?php }?>

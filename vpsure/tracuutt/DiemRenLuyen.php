@@ -1,3 +1,4 @@
+
 <?php 
    if($arwrk[0]['code_ser'] =='SinhvienDiemRenLuyen') 
         {    
@@ -8,32 +9,32 @@
         //echo '<pre>'; print_r($result);echo '</pre>';
         $_SESSION['result'] = $result;
         ?>
-<div id="printdiv">
- <div class="clr"></div>	
-<table style="width: 100%">
+
+ <div class="clr"></div>
+
+<div id="result" class="tbl_bangdiem">
+<table class="display table" >
     <tr>
         <td colspan="4" style="text-align: center">
-            <h2 class="phead_tientrinh">
+            <br/><h2 class="phead_tientrinh" style="color:white">
                 <b>   ĐIỂM RÈN LUYỆN </b>
-            <input style="float: right" id="export_excel" onclick="printform('ReportTable1')" type="button" value="&nbsp;&nbsp;&nbsp;  In ấn &nbsp;&nbsp;&nbsp; ">
             </h2>
         </td>
     </tr>
     <tr>
-        <td><span style="color: black;font-weight: bold; " > Họ tên:</span></td><td><?php echo $_SESSION['arraythongtin']['HoTen'] ?></td>
-        <td><span style="color: black;font-weight: bold;">Tình trạng</span></td><td> <?php echo $_SESSION['arraythongtin']['TinhTrang'] ?></td>
+        <td><span style="font-weight: bold; " > Họ tên:</span></td><td><?php echo $_SESSION['arraythongtin']['HoTen'] ?></td>
+        <td><span style="font-weight: bold;">Tình trạng</span></td><td> <?php echo $_SESSION['arraythongtin']['TinhTrang'] ?></td>
     </tr>
     <tr>
-        <td><span style="color: black;font-weight: bold">Ngày sinh:</span></td><td> <?php echo $_SESSION['arraythongtin']['NgaySinh'] ?></td>
-        <td><span  style="color: black;font-weight: bold">Giới tính:</span></td><td> <?php echo $_SESSION['arraythongtin']['GioiTinh'] ?></td>
+        <td><span style="font-weight: bold;">Ngày sinh:</span></td><td> <?php echo $_SESSION['arraythongtin']['NgaySinh'] ?></td>
+        <td><span  style="font-weight: bold;">Giới tính:</span></td><td> <?php echo $_SESSION['arraythongtin']['GioiTinh'] ?></td>
     </tr>
     <tr>
-        <td><span style="color: black;font-weight: bold">Ngành học:</span></td><td> <?php echo $_SESSION['arraythongtin']['TenNganh'] ?></td>
-        <td><span style="color: black;font-weight: bold">Khóa học:</span></td><td> <?php echo $_SESSION['arraythongtin']['TenKhoaHoc'] ?></td>
+        <td><span style="font-weight: bold;">Ngành học:</span></td><td> <?php echo $_SESSION['arraythongtin']['TenNganh'] ?></td>
+        <td><span style="font-weight: bold;">Khóa học:</span></td><td> <?php echo $_SESSION['arraythongtin']['TenKhoaHoc'] ?></td>
     </tr>
      <tr>
-        <td style="width:80PX;"><span style="color: black;font-weight: bold" class="phead_tientrinh">Hệ đào tạo:</span></p></td><td> <?php echo $_SESSION['arraythongtin']['TenHeDaoTao'] ?></td>
-        <td style="width: 130PX;"><span style="color: black;font-weight: bold" class="phead_tientrinh">Hình thức đào tạo:</span></td><td> <?php echo $_SESSION['arraythongtin']['DaoTao'] ?></td>
+        <td style="width:80PX;"><span style="font-weight: bold;" class="phead_tientrinh">Hệ đào tạo:</span></p></td><td> <?php echo $_SESSION['arraythongtin']['TenHeDaoTao'] ?></td>
     </tr>
     
 </table>
@@ -61,8 +62,8 @@
 
   ?>           
 
-<script src="../js/highcharts.js"></script>
-<script src="../js/exporting.js"></script>    
+<script src="../js2/highcharts.js"></script>
+<script src="../js2/exporting.js"></script>    
 <script type="text/javascript">
 $(function () {
     var chart;
@@ -120,9 +121,9 @@ $(function () {
 });
 		</script>
 <div class="clr"></div>	
-<div id="container1" style="width:700px; height: 400px; margin: 0 auto"></div>
 
 
+ 
 
             <center>           
             
@@ -133,45 +134,45 @@ $(function () {
             <form target="_blank" action="export_diemrenluyen.php" method="post" onsubmit='
                 $("#datatodisplay").val($("<div>").append( $("#ReportTable").eq(0).clone() ).html()); '>
                 <div id="ReportTable" >
-              
-            <table cellpadding="1" cellspacing="0" border="1" class="display dataTable" id="allan">
-                    <thead>
+ <table  cellpadding="1" cellspacing="0" border="1" class="display dataTable" id="allan" >
+                    <thead style="background-color:rgba(4, 99, 241, 0.73);color:white">
                             <tr> 
                                     <th class="sophieu" >Năm học</th>
                                     <th class="ngaythu">Học kỳ</th>
                                     <th class="hocky">Điểm rèn luyện</th>
                                
                             </tr>
-                    </thead>
+                    </thead><br>
                     <tbody>
-                            <?php for($i =0; $i<Count($result); $i++)
-                            {
-                            ?>
-                            <tr class="gradeX">
-                                    <td class="center"><?php echo $result[$i]['NamHoc']; ?></td> 
-                                    <td class="center"><?php echo $result[$i]['HocKy']; ?></td>
-                                    <td class="center"><?php echo $result[$i]['Diem']; ?></td>
-                            </tr>
-                            <?php } ?>
+            <?php for($i =0; $i<Count($result); $i++)
+            {
+            ?>
+            <tr class="gradeX">
+                    <td class="center"><?php echo $result[$i]['NamHoc']; ?></td> 
+                    <td class="center"><?php echo $result[$i]['HocKy']; ?></td>
+                    <td class="center"><?php echo $result[$i]['Diem']; ?></td>
+            </tr>
+            <?php } ?>
                     </tbody>
                     </table>
                 </div>
-         </div>
+        
  <!-- end print diem ren luen -->     
-                <center>
-                <div style="padding:30px 0px 10px 0px">
-                <input type="hidden" id="datatodisplay" name="datatodisplay">
-                <input id="export_excel" type="submit" value="Xem - Kết xuất">
-                <input id="export_excel" onclick="printform('printdiv')" type="button" value="&nbsp;&nbsp;&nbsp; In ấn &nbsp;&nbsp;&nbsp; ">
-                </center>
-                </div>
+    <div id="container1" class="chart"></div>             
+ <div class="export"> 
+    <input type="hidden" id="datatodisplay" name="datatodisplay">
+    <input id="export_excel" type="submit" value="&nbsp;&nbsp;&nbsp; Xem &nbsp;&nbsp;&nbsp;">
+    <input id="export_excel" onclick="printform('printdiv')" type="button" value="&nbsp;&nbsp;&nbsp; In ấn &nbsp;&nbsp;&nbsp; "> 
+    </div>
             </form>
-     <div style="clear:both">            
+     <div style="clear:both">    </div>  
+     </div>     
             <?php } else { ?>
 
-                <div>
-                    <center>
-                <h2 style="line-height:130px;color:red;">Không tồn tại điểm rèn luyện của sinh viên !</h2>
+ <div class="error">
+    <center>
+        <img src="../images/error.jpg" alt="stop" class="error_picture">
+    <h2 style=";color:red;">Không tìm thấy điểm rèn luyện của sinh viên !</h2>
                     </center>
                 </div>
 

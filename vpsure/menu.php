@@ -43,7 +43,7 @@
 			</div>
 
 		   <div class="clearfix"> </div>
-	
+	</div>
 
 
 			<br/>
@@ -51,11 +51,12 @@
 		<div class="market-updates">
 			<div class="col-md-4 market-update-gd">
 				<div class="market-update-block clr-block-4">
+					<a href="notice_message/ds_notice.php">
 					<div class="col-md-8 market-update-left">
 						<h3>4</h3>
 						<h4>Thông báo</h4>
 						<p>Other hand, we denounce</p>
-					</div>
+					</div></a>
 					<div class="col-md-4 market-update-right">
 						<i class="fa fa-bell-o"> </i>
 					</div>
@@ -138,5 +139,4 @@
 		   <div class="clearfix"> </div>
 		</div>
 </div>
-	</div>
-</div>
+

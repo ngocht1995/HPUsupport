@@ -58,21 +58,19 @@
 }
 
 .dataTables_filter {
-	width: 270px;
-	position: relative;
-	left:200px;
-	font-weight: bold;
-	text-align: left;
-	height:50px;
+	float: left;
+	text-align: right;
 }
 
+
 .dataTables_info {
-	width: 60%;
+	width: 40%;
 	float: left;
+	font-weight: bold;
 }
 
 .dataTables_paginate {
-	float: right;
+	float: left;
 	text-align: right;
 }
 
@@ -83,7 +81,7 @@
 	float: left;
 	cursor: pointer;
 	*cursor: hand;
-	color: #111 !important;
+	color: white !important;
 }
 .paginate_disabled_previous:hover, .paginate_enabled_previous:hover,
 .paginate_disabled_next:hover, .paginate_enabled_next:hover {
@@ -96,7 +94,7 @@
 
 .paginate_disabled_previous,
 .paginate_disabled_next {
-	color: #666 !important;
+	color: #5f5151 !important;
 }
 .paginate_disabled_previous, .paginate_enabled_previous {
 	padding-left: 23px;
@@ -136,8 +134,7 @@
 table.display {
 	margin: 0 auto;
 	clear: both;
-	width: 100%;
-	
+	width:100%;
 	/* Note Firefox 3.5 and before have a bug with border-collapse
 	 * ( https://bugzilla.mozilla.org/show%5Fbug.cgi?id=155955 ) 
 	 * border-spacing: 0; is one possible option. Conditional-css.com is
@@ -153,7 +150,7 @@ table.display {
 }
 
 table.display thead th {
-	padding: 3px 18px 3px 10px;
+	/*padding: 3px 18px 3px 10px;*/
 	border-bottom: 1px solid black;
 	font-weight: bold;
 	cursor: pointer;
@@ -161,7 +158,7 @@ table.display thead th {
 }
 
 table.display tfoot th {
-	padding: 3px 18px 3px 10px;
+/*	padding: 3px 18px 3px 10px;*/
 	border-top: 1px solid black;
 	font-weight: bold;
 }
@@ -171,7 +168,7 @@ table.display tr.heading2 td {
 }
 
 table.display td {
-	padding: 3px 10px;
+/*	padding: 3px 10px;*/
 }
 
 table.display td.center {
@@ -232,7 +229,7 @@ table.display tr.even.gradeC {
 }
 
 table.display tr.odd.gradeX {
-	
+	background-color: #ffdddd;
 }
 
 table.display tr.even.gradeX {
@@ -249,11 +246,11 @@ table.display tr.even.gradeU {
 
 
 tr.odd {
-	
+	background-color: #f2dede;
 }
 
 tr.even {
-	background-color: white;
+	background-color: #fcf8e3;
 }
 
 
@@ -368,8 +365,12 @@ table.display tr.odd.row_selected td {
  * Sorting classes for columns
  */
 /* For the standard odd/even */
-tr.odd td.sorting_1 {
+.class{
+	background-color: #f2dede;
+}
 
+tr.odd td.sorting_1 {
+	background-color: #f2dede;
 }
 
 tr.odd td.sorting_2 {
@@ -381,7 +382,7 @@ tr.odd td.sorting_3 {
 }
 
 tr.even td.sorting_1 {
-	background-color: #EAEBFF;
+	background-color: #fcf8e3;
 }
 
 tr.even td.sorting_2 {
@@ -452,6 +453,7 @@ tr.even.gradeC td.sorting_3 {
 }
 
 tr.odd.gradeX td.sorting_1 {
+	background-color: #f2dede;
 }
 
 tr.odd.gradeX td.sorting_2 {
@@ -463,7 +465,7 @@ tr.odd.gradeX td.sorting_3 {
 }
 
 tr.even.gradeX td.sorting_1 {
-	background-color: #ffd5d5;
+	background-color: #fcf8e3;
 }
 
 tr.even.gradeX td.sorting_2 {
@@ -563,7 +565,7 @@ table.display tr.gradeC {
 }
 
 table.display tr.gradeX {
-
+	background-color: #ffdddd;
 }
 
 table.display tr.gradeU {

@@ -8,13 +8,14 @@
            // echo '<pre>'; print_r($result);echo '</pre>';
              $_SESSION['result'] = $result;
           ?>
-                    <center>           
-                    <h2 style="font-weight: bold;color:black">DANH SÁCH PHÒNG TRỐNG TRONG KSSV  </h2>
+  <div  id="result" class="tbl_bangdiem">
+                    <center><br>           
+                    <h2 style="font-weight: bold;">DANH SÁCH PHÒNG TRỐNG TRONG KSSV  </h2>
                     <?php  $_SESSION['header_title']  ='DANH SÁCH PHÒNG TRỐNG TRONG KSSV';
                            $_SESSION['title']  ='danhsachphongtrongkssv';
                     ?>
                       
-                    </center>
+                    </center><br>
                <form target="_blank" action="export_svkssv.php" method="post" onsubmit='
                 $("#datatodisplay").val($("<div>").append( $("#ReportTable").eq(0).clone() ).html()); '>
                 <div id="ReportTable" >
@@ -23,16 +24,16 @@
 		<style type="text/css">
 			body { font-family: "HelveticaNeue","Helvetica-Neue", "Helvetica", "Arial", sans-serif; }
 			.big-link { display:block; text-align: center;color: #06f; }
-		</style>                 
-                    <table cellpadding="1" cellspacing="0" border="1" class="display dataTable" id="allan" style="font-size: 11px" >
-                    <thead>
+		</style>    
+ <table  cellpadding="1" cellspacing="0" border="1" class="display dataTable" id="allan" >
+            <thead style="background-color:rgba(4, 99, 241, 0.73);color:white">
                             <tr> 
-                                    <th class="center"> STT</th>
-                                    <th class="center"> Mã phòng</th>
-                                    <th class="center"> Loại phòng</th>
-                                    <th class="center"> Số lượng</th>
-                                    <th class="center" style="text-align: center">Bạn cùng phòng</th>
-                                    <th class="center"></th>
+                                    <th> STT</th>
+                                    <th> Mã phòng</th>
+                                    <th> Loại phòng</th>
+                                    <th> Số lượng</th>
+                                    <th>Bạn cùng phòng</th>
+                                    <th></th>
                                    
                           
                             </tr>
@@ -42,17 +43,17 @@
                if ($result['MaPhong'] <> null)
                          { ?>
                               <tr class="gradeX">
-                                    <td align="center"><?php echo '1'; ?></td>
-                                    <td align="center"><?php echo $result['MaPhong']; ?></td>
-                                    <td align="center"><?php echo $result['LoaiPhong']; ?></td>
-                                    <td align="center"><?php echo $result['SoSVDangO']."/".$result['SoGiuong']; ?></td>
-                                    <td align="center"><a> 
+                                    <td class="center"><?php echo '1'; ?></td>
+                                    <td class="center"><?php echo $result['MaPhong']; ?></td>
+                                    <td class="center"><?php echo $result['LoaiPhong']; ?></td>
+                                    <td class="center"><?php echo $result['SoSVDangO']."/".$result['SoGiuong']; ?></td>
+                                    <td class="center"><a> 
                                          <?php
                                             if (trim($result['SoSVDangO'])>0)
                                             echo  'D/s người trong phòng';
                                          ?>   
                                            </a></td>
-                                    <td align="center"><a>Đặt phòng</a></td>
+                                    <td class="center"><a>Đặt phòng</a></td>
                                 </tr>
                  <?php } else
                          {  
@@ -61,11 +62,11 @@
                             ?>
                    
                                <tr class="gradeX">
-                                    <td align="center"><?php echo $i+1; ?></td>
-                                    <td align="center"><?php echo $result[$i]['MaPhong']; ?></td>
-                                    <td align="center"><?php echo $result[$i]['LoaiPhong']; ?></td>
-                                    <td align="center"><?php echo $result[$i]['SoSVDangO']."/".$result[$i]['SoGiuong']; ?></td>
-                                    <td align="center">	
+                                    <td class="center"><?php echo $i+1; ?></td>
+                                    <td class="center"><?php echo $result[$i]['MaPhong']; ?></td>
+                                    <td class="center"><?php echo $result[$i]['LoaiPhong']; ?></td>
+                                    <td class="center"><?php echo $result[$i]['SoSVDangO']."/".$result[$i]['SoGiuong']; ?></td>
+                                    <td class="center">	
                                    <a href="#" class="big-link"  onClick="addHit('<?php echo $result[$i]['MaPhong']; ?>')" data-reveal-id="myModal">
                                      <?php  if ($result[$i]['SoSVDangO']  <> '0'  ) 
                                      { echo 'Bạn cùng phòng';}
@@ -87,7 +88,7 @@
                                          </script>
                                      
                                     </td>
-                                    <td align="center"><a>Đặt phòng</a></td>
+                                    <td class="center"><a>Đặt phòng</a></td>
                                 </tr>
                             <?php } 
                  } ?>
@@ -98,7 +99,7 @@
 			<a class="close-reveal-modal">&#215;</a>
 		</div>
                 </div>
-                <div style="padding:30px 0px 10px 0px">
+      <div style="padding:30px 0px 10px 0px;" class="export"> 
                     <center>
                 <input type="hidden" id="datatodisplay" name="datatodisplay">
 
@@ -108,9 +109,9 @@
                 <div style="clear:both">
 
             <?php } else { ?>
-            <div style="padding-left:20px;">
-            <img src="../images/stop.png" alt="stop" style="height: 130px">
-            <h2 style="line-height:130px;color:red;">Không tồn tại phòng trống trong khách sạn sinh viên !</h2>
+ <div class="notice">
+            <img src="../images/stop.png" alt="stop" class="notice_picture">
+            <h2 style="color:red;">Không tồn tại phòng trống trong khách sạn sinh viên !</h2>
             </div>
 
             <?php } ?>

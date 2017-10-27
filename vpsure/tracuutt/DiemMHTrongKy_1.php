@@ -45,57 +45,37 @@
                                     ?>
                                         <tbody>
                                                 <tr class="gradeX">
-                                                        <td  class="center"><?php echo $result['MaMonHoc']; ?></td>  
-                                                        <td><b><?php echo $result['TenMonHoc']; ?></b></td> 
-                                                        <td ><?php echo $result['TyLeDiem']; ?></td>  
-                                                        <td class="center"><?php echo $result['DQT']; ?></td>
-                                                        <td class="center"><?php echo $result['DiemThiL1']; ?></td>
-                                                        <td class="center"><?php echo $result['DiemTHL1']; ?></td>
-                                                        <td class="center"><?php echo $result['DiemThiL2']; ?></td>
-                                                        <td class="center"><?php echo $result['DiemTHL2']; ?></td>
-                                                        <td class="center"><?php echo $result['CamThiLan1']; ?></td>
-                                                        <td class="center"><?php echo $result['ViPham']; ?></td>
-                                                        <td class="center"><?php echo $result['PhaiHocLai']; ?></td> 
-                                                        <td class="center"><?php echo $result['PhaiHocLai']; ?></td>   
+                    <td  class="center"><?php echo $result['MaMonHoc']; ?></td>  
+                    <td><b><?php echo $result['TenMonHoc']; ?></b></td> 
+                    <td ><?php echo $result['TyLeDiem']; ?></td>  
+                    <td class="center"><?php echo $result['DQT']; ?></td>
+                    <td class="center"><?php echo $result['DiemThiL1']; ?></td>
+                    <td class="center"><?php echo $result['DiemTHL1']; ?></td>
+                    <td class="center"><?php echo $result['DiemThiL2']; ?></td>
+                    <td class="center"><?php echo $result['DiemTHL2']; ?></td>
+                    <td class="center"><?php echo $result['CamThiLan1']; ?></td>
+                    <td class="center"><?php echo $result['ViPham']; ?></td>
+                    <td class="center"><?php echo $result['PhaiHocLai']; ?></td> 
+                    <td class="center"><?php echo $result['PhaiHocLai']; ?></td>   
                                                 </tr>
                                         </tbody>
                                         <?php } else { ?>
                                             <tbody>
+                                 
                                                 
-                                                <?php 
-                                                 $monhocthamdo =  $_SESSION['monhocthamdo'] ; 
-                                                for($i =0; $i<Count($result); $i++)
-                                                {
-                                                       for($j=0;$j<count($monhocthamdo);$j++)
-                                                        { 
-                                                            
-                                                         if ( $monhocthamdo[$j]['mamon'] = $result[$i]['MaMonHoc'] )
-                                                             {
-                                                             $thamdo = "Chưa phản hồi" ;
-                                                             $url ="http://thamdo.hpu.edu.vn/thamdo/".$monhocthamdo[$i]['survey_id']."/monhoc/".$monhocthamdo[$i]['id']."";
-                                                             }
-                                                             else 
-                                                             {
-                                                             $thamdo = "Đã phản hồi" ; 
-                                                             $url ="";
-                                                             }    
-                                                          
-                                                        }
-      
-                                                ?>
-                                                <tr class="gradeX">
-                                                        <td class="center"><?php echo $result[$i]['MaMonHoc']; ?></td>  
-                                                        <td><?php echo $result[$i]['TenMonHoc']; ?></td>  
-                                                        <td ><?php echo $result[$i]['TyLeDiem']; ?></td>  
-                                                        <td class="center"><?php echo $result[$i]['DQT']; ?></td>
-                                                        <td class="center"><?php echo $result[$i]['DiemThiL1']; ?></td>
-                                                        <td class="center"><?php echo $result[$i]['DiemTHL1']; ?></td>
-                                                        <td class="center"><?php echo $result[$i]['DiemThiL2']; ?></td>
-                                                        <td class="center"><?php echo $result[$i]['DiemTHL2']; ?></td>   
-                                                        <td class="center"><?php echo $result[$i]['CamThiLan1']; ?></td>
-                                                        <td class="center"><?php echo $result[$i]['ViPham']; ?></td>
-                                                        <td class="center"><?php echo $result[$i]['PhaiHocLai']; ?></td> 
-                                                        <td class="center"><a target="_blank"  href="<?php echo $url ?>"><?php echo $thamdo ?> </a></td>
+<tr class="gradeX">
+    <td class="center"><?php echo $result[$i]['MaMonHoc']; ?></td>  
+    <td><?php echo $result[$i]['TenMonHoc']; ?></td>  
+    <td ><?php echo $result[$i]['TyLeDiem']; ?></td>  
+    <td class="center"><?php echo $result[$i]['DQT']; ?></td>
+    <td class="center"><?php echo $result[$i]['DiemThiL1']; ?></td>
+    <td class="center"><?php echo $result[$i]['DiemTHL1']; ?></td>
+    <td class="center"><?php echo $result[$i]['DiemThiL2']; ?></td>
+    <td class="center"><?php echo $result[$i]['DiemTHL2']; ?></td>   
+    <td class="center"><?php echo $result[$i]['CamThiLan1']; ?></td>
+    <td class="center"><?php echo $result[$i]['ViPham']; ?></td>
+    <td class="center"><?php echo $result[$i]['PhaiHocLai']; ?></td> 
+   </td>
                                                 </tr>
                                                 <?php } ?>
                                             </tbody>    
@@ -118,7 +98,7 @@
 
                         <?php } ?>
         <?php } else { ?>
-                    <p style="text-align: center;margin-top:80px;">Bạn cần đăng nhập hệ thống: <a style="color: red" href="../admincontent/login.php"> htpp://vp.hpu.edu.vn </a> để tra cứu chức năng này</p>    
+                   <!--  <p style="text-align: center;margin-top:80px;">Bạn cần đăng nhập hệ thống: <a style="color: red" href="../admincontent/login.php"> htpp://vp.hpu.edu.vn </a> để tra cứu chức năng này</p>  -->   
               
 <?php } ?>    
                   

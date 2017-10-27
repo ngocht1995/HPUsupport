@@ -8,45 +8,43 @@
         {
         $result = $result['BangDiemToanKhoaResult']['diffgram']['DocumentElement']['BangDiemToanKhoa'];
         ?>
-<div id="result">
-
+<div id="result" class="tbl_bangdiem">
 <center>           
-          
- <table style="width: 100%;margin: 10px 0px 10px 0px">
+          <br>
+ <table class="display table">
     <tr>
         <td colspan="4" style="text-align: center">
-             <h2 style="font-weight: bold;color:black;font-size: 14px">BẢNG ĐIỂM TOÀN KHÓA </h2>
+             <h2 >BẢNG ĐIỂM TOÀN KHÓA </h2><br>
             <?php  $_SESSION['header_title']  ='BẢNG ĐIỂM TOÀN KHÓA';
                    $_SESSION['title']  ='BangDiemToanKhoa';
             ?>
         </td>
     </tr>
     <tr>
-        <td><span style="color: black;font-weight: bold; " > Họ tên:</span></td><td><?php echo $_SESSION['arraythongtin']['HoTen'] ?></td>
-        <td><span style="color: black;font-weight: bold;">Tình trạng</span></td><td> <?php echo $_SESSION['arraythongtin']['TinhTrang'] ?></td>
+        <td><span style="font-weight: bold; " > Họ tên:</span></td><td><?php echo $_SESSION['arraythongtin']['HoTen'] ?></td>
+        <td><span style="font-weight: bold;">Tình trạng</span></td><td> <?php echo $_SESSION['arraythongtin']['TinhTrang'] ?></td>
     </tr>
     <tr>
-        <td><span style="color: black;font-weight: bold">Ngày sinh:</span></td><td> <?php echo $_SESSION['arraythongtin']['NgaySinh'] ?></td>
-        <td><span  style="color: black;font-weight: bold">Giới tính:</span></td><td> <?php echo $_SESSION['arraythongtin']['GioiTinh'] ?></td>
+        <td><span style="font-weight: bold;">Ngày sinh:</span></td><td> <?php echo $_SESSION['arraythongtin']['NgaySinh'] ?></td>
+        <td><span  style="font-weight: bold;">Giới tính:</span></td><td> <?php echo $_SESSION['arraythongtin']['GioiTinh'] ?></td>
     </tr>
     <tr>
-        <td><span style="color: black;font-weight: bold">Ngành học:</span></td><td> <?php echo $_SESSION['arraythongtin']['TenNganh'] ?> &nbsp; &nbsp;<b> Lớp:</b> <?php echo $_SESSION['arraythongtin']['MaLop'] ?></td>
-        <td><span style="color: black;font-weight: bold">Khóa học:</span></td><td> <?php echo $_SESSION['arraythongtin']['TenKhoaHoc'] ?></td>
+        <td><span style="font-weight: bold;">Ngành học:</span></td><td> <?php echo $_SESSION['arraythongtin']['TenNganh'] ?> &nbsp; &nbsp;<b> Lớp:</b> <?php echo $_SESSION['arraythongtin']['MaLop'] ?></td>
+        <td><span style="font-weight: bold;">Khóa học:</span></td><td> <?php echo $_SESSION['arraythongtin']['TenKhoaHoc'] ?></td>
     </tr>
      <tr>
-        <td style="width:80PX;"><span style="color: black;font-weight: bold" class="phead_tientrinh">Hệ đào tạo:</span></p></td><td> <?php echo $_SESSION['arraythongtin']['TenHeDaoTao'] ?></td>
-        <td style="width: 130PX;"><span style="color: black;font-weight: bold" class="phead_tientrinh">Hình thức đào tạo:</span></td><td> <?php echo $_SESSION['arraythongtin']['DaoTao'] ?></td>
+        <td><span style="font-weight: bold;" class="phead_tientrinh">Hệ đào tạo:</span></p></td><td> <?php echo $_SESSION['arraythongtin']['TenHeDaoTao'] ?></td>
+        <td><span style="font-weight: bold;" class="phead_tientrinh">Hình thức đào tạo:</span></td><td> <?php echo $_SESSION['arraythongtin']['DaoTao'] ?></td>
     </tr>
     
 </table>
             </center>
-            <form target="_blank" action="export_bangdiem.php?data=1" method="post" onsubmit='
+         <form target="_blank" action="export_bangdiem.php?data=1" method="post" onsubmit='
                 $("#datatodisplay").val($("<div>").append( $("#ReportTable").eq(0).clone() ).html()); '>
-                <div id="ReportTable" >
-                    <table width="100%" cellpadding="1" cellspacing="0" border="1" class="display" id="allan" style="font-size: 10px;">
-                    <thead>
-                            <tr> 
-                                    <th class="sophieu" >Năm học</th>
+                <div id="ReportTable" style="width:100%;">
+                   <table  cellpadding="1" cellspacing="0" border="1" class="display dataTable" id="allan" >
+                    <thead style="background-color:rgba(4, 99, 241, 0.73);color:white">
+                            <tr style="height: 50px"> 
                                     <th class="namhoc">Mã môn học</th>
                                     <th class="sotien">Tên môn học</th>
                                     <th class="namhoc">Khối lượng</th>
@@ -61,10 +59,9 @@
                             {
                                 
                             ?>
-                             
-                                    <td class="center"><?php echo $result[$i]['NamHoc']; ?></td> 
-                                    <td ><?php echo $result[$i]['MaMonHoc']; ?></td>
-                                    <td style="width: 220px"> <?php echo $result[$i]['TenMonHoc']; ?> </td>
+      
+                                    <td style="color:brown"><?php echo $result[$i]['MaMonHoc']; ?></td>
+                                    <td style="width: 220px;color:#2A679F"> <?php echo $result[$i]['TenMonHoc']; ?> </td>
                                     <td class="center"><?php echo $result[$i]['KhoiLuong']; ?></td>
                                     <td class="center"><?php echo $result[$i]['DiemThang10']; ?></td>
                                     <td class="center"><?php echo $result[$i]['DiemThang4']; ?></td>
@@ -77,14 +74,19 @@
                 </div>
                
             </form>
+  <div style="padding:30px 0px 10px 0px; position: relative;top: 35px;height: 20px"> 
+   
 </div>
- <div style="clear:both">
+</div>
+
+ <div style="clear:both"></div>
 
             <?php } else { ?>
 
-                <div>
-                <center>
-                <h2 style="line-height:130px;color:red;">Không tồn tại bảng điểm toàn khóa của sinh viên !</h2>
+  <div class="error">
+       <center>
+           <img src="../images/error.jpg" alt="stop" class="error_picture">
+                <h2 style="color:red;">Không tồn tại bảng điểm của sinh viên !</h2>
                 </center>
                 </div>
 

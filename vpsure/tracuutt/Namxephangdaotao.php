@@ -1,32 +1,4 @@
 
-<style type="text/css">
-table.sample {
-	border-width: 1px;
-	border-spacing: 2px;
-	border-style: outset;
-	border-color: gray;
-	border-collapse: separate;
-	background-color: white;
-        width: 100%;
-        margin: 10px 0px 10px 0px;
-}
-table.sample th {
-	border-width: 1px;
-	padding: 1px;
-	border-style: inset;
-	border-color: gray;
-	background-color: white;
-
-}
-table.sample td {
-	border-width: 1px;
-	padding: 1px;
-	border-style: inset;
-	border-color: gray;
-	background-color: white;
-	
-}
-</style>        
 
 <?php 
    if($arwrk[0]['code_ser'] =='XepHangNam') 
@@ -72,9 +44,9 @@ table.sample td {
 <span style="color:#333366;font-weight: bold">Lựa chọn </span>
 <select name="search_scores"  id="search_scores_id"  onchange="showstuff(this.value);">
                                         <option value="0">Chọn thang điểm </option>
-					<option value="container_so">Thang điểm 10 </option>
-					<option value="container1">Thang điểm 4</option>
-					
+                    <option value="container_so">Thang điểm 10 </option>
+                    <option value="container1">Thang điểm 4</option>
+                    
 </select>
    </center>
 </DIV>
@@ -88,49 +60,59 @@ function showstuff(element){
 
 
 
-<DIV style="clear: both"></div>
-<div class="clr"></div>	
-<table style="width: 100%">
+<div style="clear: both"></div>
+<div class="clr"></div> 
+
+<div id="result" class="tbl_bangdiem">
+<table class="display table">
     <tr>
-        <td colspan="4" style="text-align: center">
+        <td colspan="4" style="text-align: center;">
             <h2 class="phead_tientrinh">
                 <b>   TIẾN TRÌNH HỌC TẬP </b>
-            <input style="float: right" id="export_excel" onclick="printform('ReportTable1')" type="button" value="&nbsp;&nbsp;&nbsp;  In ấn &nbsp;&nbsp;&nbsp; ">
-            </h2>
-        </td>
+            </h2><br>
+        </td><br>
     </tr>
     <tr>
-        <td><span style="color: black;font-weight: bold; " > Họ tên:</span></td><td><?php echo $_SESSION['arraythongtin']['HoTen'] ?></td>
-        <td><span style="color: black;font-weight: bold;">Tình trạng</span></td><td> <?php echo $_SESSION['arraythongtin']['TinhTrang'] ?></td>
+        <td><span style="font-weight: bold; " > Họ tên:</span></td><td><?php echo $_SESSION['arraythongtin']['HoTen'] ?></td>
+        <td><span style="font-weight: bold;">Tình trạng</span></td><td> <?php echo $_SESSION['arraythongtin']['TinhTrang'] ?></td>
     </tr>
     <tr>
-        <td><span style="color: black;font-weight: bold">Ngày sinh:</span></td><td> <?php echo $_SESSION['arraythongtin']['NgaySinh'] ?></td>
-        <td><span  style="color: black;font-weight: bold">Giới tính:</span></td><td> <?php echo $_SESSION['arraythongtin']['GioiTinh'] ?></td>
+        <td><span style="font-weight: bold;">Ngày sinh:</span></td><td> <?php echo $_SESSION['arraythongtin']['NgaySinh'] ?></td>
+        <td><span  style="font-weight: bold;">Giới tính:</span></td><td> <?php echo $_SESSION['arraythongtin']['GioiTinh'] ?></td>
     </tr>
     <tr>
-        <td><span style="color: black;font-weight: bold">Ngành học:</span></td><td> <?php echo $_SESSION['arraythongtin']['TenNganh'] ?> &nbsp; &nbsp;<b> Lớp:</b> <?php echo $_SESSION['arraythongtin']['MaLop'] ?>  </td>
-        <td><span style="color: black;font-weight: bold">Khóa học:</span></td><td> <?php echo $_SESSION['arraythongtin']['TenKhoaHoc'] ?></td>
+        <td><span style="font-weight: bold;">Ngành học:</span></td><td> <?php echo $_SESSION['arraythongtin']['TenNganh'] ?> &nbsp; &nbsp;<b> Lớp:</b> <?php echo $_SESSION['arraythongtin']['MaLop'] ?>  </td>
+        <td><span style="font-weight: bold;">Khóa học:</span></td><td> <?php echo $_SESSION['arraythongtin']['TenKhoaHoc'] ?></td>
     </tr>
      <tr>
-        <td style="width:80PX;"><span style="color: black;font-weight: bold" class="phead_tientrinh">Hệ đào tạo:</span></p></td><td> <?php echo $_SESSION['arraythongtin']['TenHeDaoTao'] ?></td>
-        <td style="width: 130PX;"><span style="color: black;font-weight: bold" class="phead_tientrinh">Hình thức đào tạo:</span></td><td> <?php echo $_SESSION['arraythongtin']['DaoTao'] ?></td>
+        <td style="width:80PX;"><span style="font-weight: bold;" class="phead_tientrinh">Hệ đào tạo:</span></p></td><td> <?php echo $_SESSION['arraythongtin']['TenHeDaoTao'] ?></td>
+        <td style="width: 130PX;"><span style="font-weight: bold;" class="phead_tientrinh">Hình thức đào tạo:</span></td><td> <?php echo $_SESSION['arraythongtin']['DaoTao'] ?></td>
     </tr>
     
 </table>
+<a style="font-style: italic;color: white;text-decoration: underline;" target="_blank" href="http://tv.hpu.edu.vn/TT-Thongtin-Thuvientintuc-2380-254-223-117-Cach-Tinh-Diem-Trung-Binh-Chung-Hoc-Tap-Va-Diem-Trung-Binh-Chung-Tich-Luy.html">(*Note: Xem cách tính điểm trung bình chung học tập và điểm trung bình chung tích lũy ở đây) </a>
+<div style="clear: both"> <br/></div>
+<p style="font-style: italic;color: white;">
+    Theo quy định: </br>
+      
+                    - Đối với hệ đại học sinh viên cần hoàn thành tối thiểu: 120 tín chỉ.<br>
+                    - Đối với hệ cao đẳng sinh viên cần hoàn thành tối thiểu: 90 tín chỉ.<br/>
+                    - Đối với hệ trung cấp sinh viên cần hoàn thành tối thiểu: 60 tín chỉ.<br/>
+     
+ </p>
 
 
-
-<table class="sample" style="font-size: 12px;">
+<table class="sample" >
      <tr>
          <td colspan="5">
-           <p style="background: url('../images/common/WebResource.axd.gif') no-repeat;background-position:5px 5px;padding:5px 0px 0px 20px;" > 
+           <p style="background-position:5px 5px;padding:5px 0px 0px 20px;" > 
                  <b>  Số tín chỉ tích lũy:<span>&nbsp; &nbsp;  <?php echo $nam_xephang['SoTinChiTichLuy'] ?></span></b>&nbsp;&nbsp;tín chỉ
            </p>   
         </td>
      </tr>
      <tr>
          <td colspan="5">
-         <p style="background: url('../images/common/WebResource.axd.gif') no-repeat;background-position:5px 5px;padding:5px 0px 0px 20px;" > 
+         <p style="background-position:5px 5px;padding:5px 0px 0px 20px;" > 
              <b>  Năm xếp hạng đào tạo sinh viên:<span> năm thứ <?php echo $nam_xephang['NamThu'] ?></span></b>
          </p>
          </td>
@@ -144,7 +126,7 @@ function showstuff(element){
      </tr>
      <tr>  
          <td > 
-              <p style="background: url('../images/common/WebResource.axd.gif') no-repeat;background-position:5px 5px;padding:5px 0px 0px 20px;" > 
+              <p style="background-position:5px 5px;padding:5px 0px 0px 20px;" > 
               <b>  Điểm trung bình trung tích lũy </b> <i>(để xét điều kiện thực tập tốt nghiệp, điều kiện tốt nghiệp)</i>
               </p>
          </td>
@@ -154,7 +136,7 @@ function showstuff(element){
          <td style="text-align: center"> <?php echo $TBCTLXepLoai_TK['XepLoai4'] ?></td>
      </tr>
       <tr>  
-         <td style="width:40%"> <p style="background: url('../images/common/WebResource.axd.gif') no-repeat;background-position:5px 5px;padding:5px 0px 0px 20px;" > 
+         <td style="width:40%"> <p style=";background-position:5px 5px;padding:5px 0px 0px 20px;" > 
                  <b> Điểm trung bình trung tích lũy toàn khóa </b> &nbsp;&nbsp; &nbsp;<i>(để xếp loại tốt nghiệp)</i>
               </p></td>
          <td style="text-align: center">
@@ -172,16 +154,7 @@ function showstuff(element){
      </tr>
      
  </table>
-<p style="font-style: italic;;font-size:12px;color: black;float:right"><a target="_blank" href="http://tv.hpu.edu.vn/TT-Thongtin-Thuvientintuc-2380-254-223-117-Cach-Tinh-Diem-Trung-Binh-Chung-Hoc-Tap-Va-Diem-Trung-Binh-Chung-Tich-Luy.html">(* Note: Cách tính điểm trung bình chung học tập và điểm trung bình chung tích luỹ </a>)</p>
-<div style="clear: both"> <br/></div>
-<p style="font-style: italic;padding-left:10px;font-size:12px;color: black;padding-left:330px">
-    Theo quy định: </br>
-      
-                    - Đối với hệ đại học sinh viên cần hoàn thành tối thiểu: 120 tín chỉ.<br>
-                    - Đối với hệ cao đẳng sinh viên cần hoàn thành tối thiểu: 90 tín chỉ.<br/>
-                    - Đối với hệ trung cấp sinh viên cần hoàn thành tối thiểu: 60 tín chỉ.<br/>
-     
- </p>
+
 <!-- end  xác định tiến trình học tập cảu sinh viên -->
 
 <!-- Biểu đồ kết quả học tập -->
@@ -214,8 +187,8 @@ $result_2= Get_arrayservice($msv,'TBCHTNamHocHKlan2');
                 $string_so2=$string_so2."".round($kqht_lan2['Diem4'],2).", ";
   ?>      
 
-                <p style="background: url('../images/common/WebResource.axd.gif') no-repeat;background-position:5px 5px;padding:5px 0px 0px 20px;" > 
-                    <b>  Điểm trung bình trung học tập theo kỳ theo điểm thi lần 1</span>
+                <p style="background-position:5px 5px;padding:5px 0px 0px 20px;" > 
+                    <b>  Điểm trung bình trung học tập theo kỳ theo điểm thi lần 1</b>
                 </p>
                 <table class="sample">
                     <tr>
@@ -227,16 +200,16 @@ $result_2= Get_arrayservice($msv,'TBCHTNamHocHKlan2');
                         <td align="center"> Xếp loại<br/> (Thang điểm 4)</td>
                     </tr>
                     <tr>
-                        <td style="text-align: center"> <?php echo $kqht['NamHoc']  ?></td>
-                        <td style="text-align: center"> <?php echo $kqht['HocKy']  ?></td>
-                        <td style="text-align: center"> <?php echo round ($kqht['Diem'] , 2) ?></td>
-                        <td style="text-align: center"> <?php echo $kqht['XepLoai10']  ?></td>
-                        <td style="text-align: center"> <?php echo round ($kqht['Diem4'] , 2) ;  ?></td>
-                        <td style="text-align: center"> <?php echo $kqht['XepLoai4']  ?></td>
+                    <td style="text-align: center"> <?php echo $kqht['NamHoc']  ?></td>
+                    <td style="text-align: center"> <?php echo $kqht['HocKy']  ?></td>
+                    <td style="text-align: center"> <?php echo round ($kqht['Diem'] , 2) ?></td>
+                    <td style="text-align: center"> <?php echo $kqht['XepLoai10']  ?></td>
+                    <td style="text-align: center"> <?php echo round ($kqht['Diem4'] , 2) ;  ?></td>
+                    <td style="text-align: center"> <?php echo $kqht['XepLoai4']  ?></td>
                     </tr>
                 </table>
-                <p style="background: url('../images/common/WebResource.axd.gif') no-repeat;background-position:5px 5px;padding:5px 0px 0px 20px;" > 
-                    <b>  Điểm trung bình trung học tập theo kỳ theo điểm thi lần 2</span>
+                <p style="background-position:5px 5px;padding:5px 0px 0px 20px;" > 
+                    <b>  Điểm trung bình trung học tập theo kỳ theo điểm thi lần 2</b>
                 </p>
                 <table class="sample">
                     <tr>
@@ -258,8 +231,7 @@ $result_2= Get_arrayservice($msv,'TBCHTNamHocHKlan2');
                     </tr>
 
                 </table>
-
-  <?php  
+                </div>   <?php  
         }
   
        else 
@@ -274,8 +246,8 @@ $result_2= Get_arrayservice($msv,'TBCHTNamHocHKlan2');
              
              }  
 ?>
-    <p style="background: url('../images/common/WebResource.axd.gif') no-repeat;background-position:5px 5px;padding:5px 0px 0px 20px;" > 
-                    <b>  Điểm trung bình trung học tập theo kỳ (điểm thi lần 1)</span>
+    <p style="background-position:5px 5px;padding:5px 0px 0px 20px;" > 
+                    <b>  Điểm trung bình trung học tập theo kỳ (điểm thi lần 1)</b>
                 </p>
                 <table class="sample">
                     <tr>
@@ -301,8 +273,8 @@ $result_2= Get_arrayservice($msv,'TBCHTNamHocHKlan2');
                     <?php } ?>
                 </table>    
       
-      <p style="background: url('../images/common/WebResource.axd.gif') no-repeat;background-position:5px 5px;padding:5px 0px 0px 20px;" > 
-                    <b>  Điểm trung bình trung học tập theo kỳ (điểm thi lần 2):</span>
+      <p style="background-position:5px 5px;padding:5px 0px 0px 20px;" > 
+                    <b>  Điểm trung bình trung học tập theo kỳ (điểm thi lần 2):</b>
                 </p>
                 <table class="sample">
                     <tr>
@@ -326,11 +298,10 @@ $result_2= Get_arrayservice($msv,'TBCHTNamHocHKlan2');
                         <td style="text-align: center"> <?php echo $kqht_lan2[$i]['XepLoai4']  ?></td>
                     </tr>
                     <?php } ?>
-                </table>
-                
+                </table> 
                 
 <?php                 
-       }    
+       }   
    $categories= "categories: [".$string_cate."]";
    $data_lan1="data: [".$string_lan1."]";
    $data_lan2="data: [".$string_lan2."]";
@@ -402,10 +373,10 @@ $(function () {
 
    }); 
 });
-		</script>
+        </script>
 
-<div class="clr"></div>	
-<div  id="container_so" style="width:700px; height: 400px; margin: 0 auto;display:block"></div>
+<div class="clr"></div> 
+<div  id="container_so" class="container_so"></div>
 
 
 <script type="text/javascript">
@@ -466,11 +437,11 @@ $(function () {
 
    }); 
 });
-		</script>
+        </script>
 
 
-<div class="clr"></div>	
-<div id="container1" style="width:700px; height: 400px; margin: 0 auto;"></div>
+<div class="clr"></div> <br>
+<div id="container1" class="container1"></div>
 <!-- begin bieu do mon hoc dang ky -->
 <?php 
 $result= Get_arrayservice($msv,'ThongKeMonHocHK');
@@ -574,12 +545,14 @@ $(function () {
     });
     
 });
-		</script>
-
-<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+        </script>
+<br>
+<div id="container" class="container"></div>
+<div class="export"> 
     <center>
         <input id="export_excel" onclick="printform('ReportTable1')" type="button" value="&nbsp;&nbsp;&nbsp; In ấn &nbsp;&nbsp;&nbsp; ">
     </center>
+</div>
 </div>
      <?php } ?>
 

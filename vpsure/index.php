@@ -45,13 +45,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<!--inner block end here-->
 			</div>
 				<!--about-->
-					<?php include("about.php") ?>
-				<!--about end here-->
-
-		</div>
+	</div>
+</div>
 			<!--slider menu-->
 		     <?php include("sidebar.php") ?>
-	</div>
+
 </div>	
 
 <!--scrolling js-->

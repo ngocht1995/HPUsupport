@@ -97,13 +97,13 @@ if ($msv <> null)
             $file = Getimgservice($data,$msv);
         ?>
         <!-- <img src="<?php// echo $file ?>"> -->
-        <div  class="thongtin" style="position: relative;bottom:500px;left:400px;border-radius: 15px 50px 30px;max-width: 500px;max-height: 300px;background-image:url('../images/anhthe.jpg');background-size:100%;">
-    <img class="sinhvien" style="width: 135px;height:180px;position: relative;right:145px;border-radius: 25px;border:solid black; top:12px" src="<?php echo $file ?>" /><br/>
-    <h2 style="color:white;position: relative;top:25px;right:140px "><?php echo $msv; ?></h2>
+        <div  class="thongtin" >
+    <img class="anhthe"  src="<?php echo $file ?>" /><br/>
+    <h2 class="msv"><?php echo $msv; ?></h2>
 
                                     
-    <div class="sinhvien" align="left" style="position: relative;bottom:110px;left:230px">
-                    <span style="font-size: 20px"><b> <?php echo $result['HoDem']." ".$result['Ten']; ?></b></span>                   
+    <div class="sinhvien" align="left" >
+                    <span class="hoten"><b> <?php echo $result['HoDem']." ".$result['Ten']; ?></b></span>                   
                     <br/>Ngày sinh: <span><?php echo $result['NgaySinh']; ?></span>
                     <br/>Giới tính: <span><?php echo $result['GioiTinh']; ?></span>
                     <br/>Lớp: <span><?php echo $result['MaLop'];?></span></li>
@@ -117,8 +117,9 @@ if ($msv <> null)
     </div>
         <?php } else { ?>
 
-        <div class="thongtin" style="position: relative;bottom:500px;left:400px;border-radius: 15px 50px 30px;max-width: 500px;max-height: 300px;">
-        <center>
+    <div class="error">
+    <center>
+        <img src="../images/error.jpg" alt="stop" class="error_picture">
         <h2 style="color:red;">Không tồn tại sinh viên có mã sinh viên tương ứng !</h2>
         </center>
         </div>
@@ -145,17 +146,19 @@ if ($msv <> null)
             $_SESSION['result'] = $result;
             $tong_tien=0;
             ?>
-                <center>           
-                <h2 style="font-weight: bold;color:black">CÁC KHOẢN ĐÃ NỘP </h2>
+<div id="result" class="tbl_bangdiem">
+
+                <center>           <br>
+                <h2 style="font-weight: bold;">CÁC KHOẢN ĐÃ NỘP </h2>
                 <?php  $_SESSION['header_title']  ='CÁC KHOẢN ĐÃ NỘP';
                         $_SESSION['title']  ='CacKhoanDaNop';
                 ?>
-                </center>
+                </center><br>
                 <form  target="_blank" action="export.php" method="post" onsubmit='
                     $("#datatodisplay").val($("<div>").append( $("#ReportTable").eq(0).clone() ).html()); '>
                     <div id="ReportTable" >
-                <table cellpadding="1" cellspacing="0" border="1" class="display" id="tbldesdate">
-                        <thead>
+<table  cellpadding="1" cellspacing="0" border="1" class="display dataTable" id="allan">
+        <thead style="background-color:rgba(4, 99, 241, 0.73);color:white">
                                 <tr> 
                                         <th class="ngaythu">Ngày thu</th>
                                         <th class="sophieu" >Số phiếu</th>
@@ -215,7 +218,7 @@ if ($msv <> null)
                                 <tr class="gradeX">
                                         <td class="center"><?php echo date ( 'j/m/Y' ,strtotime ($result[$i]['NgayThu'])); ?></td>
                                         <td class="center"><?php echo $result[$i]['SoPhieu']; ?></td> 
-                                        <td>
+                                        <td style="color:black">
                                         <?php
                                         $string =  $result[$i]['NoiDung'];
                                         $a1 = strstr($string, '(', true);
@@ -254,18 +257,20 @@ if ($msv <> null)
                     </div>
                     
                     <center>
-                    <div style="padding:30px 0px 10px 0px">
+                    <div style="padding:30px 0px 10px 0px;" class="expot"> 
                     <input type="hidden" id="datatodisplay" name="datatodisplay">
                     <input id="export_excel" type="submit" value="Xem - In ấn - Kết xuất">
                     </center>
                     </div>
                 </form>
                     <div style="clear:both">
+                    </div>
                 <?php } else { ?>
 
-                    <div>
-                        <center>
-                                <h2 style="line-height:130px;color:red;">Không tồn khoản sinh viên đã nộp trên hệ thống!</h2>
+                    <div class="error">
+    <center>
+        <img src="../images/error.jpg" alt="stop" class="error_picture">
+          <h2 style="color:red;">Không tồn khoản sinh viên đã nộp trên hệ thống!</h2>
                             </center>
                     </div>
 
@@ -283,6 +288,7 @@ if ($msv <> null)
             $_SESSION['result'] = $result;
             $tong_tien=0;
             ?>
+            <div  id="result" class="tbl_bangdiem">
                 <center>           
                 <h2 style="font-weight: bold;color:black">CÁC KHOẢN ĐÃ CHI </h2>
                 <?php  $_SESSION['header_title']  ='CÁC KHOẢN ĐÃ CHI';
@@ -292,8 +298,8 @@ if ($msv <> null)
                 <form target="_blank" action="export_svdc.php" method="post" onsubmit='
                     $("#datatodisplay").val($("<div>").append( $("#ReportTable").eq(0).clone() ).html()); '>
                     <div id="ReportTable" >
-                <table cellpadding="1" cellspacing="0" border="1" class="display" id="tbldesdate">
-                        <thead>
+                 <table  cellpadding="1" cellspacing="0" border="1" class="display dataTable" id="allan">
+                    <thead style="background-color:rgba(4, 99, 241, 0.73);color:white">
                                 <tr> 
                                         <th class="ngaythu">Ngày chi</th>
                                         <th class="sophieu" >Số phiếu</th>
@@ -313,7 +319,7 @@ if ($msv <> null)
                                 <tr class="gradeX">
                                         <td class="center"><?php echo $result[$i]['NgayChi']; ?></td>
                                         <td class="center"><?php echo $result[$i]['SoPhieu']; ?></td>
-                                        <td><?php echo $result[$i]['NoiDung']; ?></td>
+                                        <td class="center"><?php echo $result[$i]['NoiDung']; ?></td>
                                         <td class="center"><?php echo $result[$i]['SoTien']; ?></td>
                                         <td class="center"><?php echo $result[$i]['namHoc']; ?></td>
                                         <td class="center" ><?php echo $result[$i]['hocKy']; ?></td>
@@ -333,17 +339,17 @@ if ($msv <> null)
                    <div style="clear: both"> <p class="phead_thongbao"><b>Tổng số tiền: </b><?php echo display_number($tong_tien); ?> (VNĐ)</p></div>
                     </div>
                     <center>
-                    <div style="padding:30px 0px 10px 0px">
+                    <div style="padding:30px 0px 10px 0px; position: relative;top: 35px;height: 50px"> 
                     <input type="hidden" id="datatodisplay" name="datatodisplay">
                     <input id="export_excel" type="submit" value="Xem - In ấn - Kết xuất">
                     </center>
                     </div>
                 </form>
-
+            </center>
             <?php 
             } else {
             ?>
-                    <div>
+                    <div class="notice">
                         <center>
                     <h2 style="line-height:130px;color:red;">Sinh viên không thuộc diện được chi trả!</h2>
                         </center>
@@ -482,10 +488,10 @@ if ($msv <> null)
   } else {
  ?>
 
-<div>
-    <center>
-            <h2 style="line-height:130px;color:red;">Chưa nhập mã sinh viên !</h2>
-     </center>
+<div class="error">
+        <img src="../images/error.jpg" alt="stop" class="error_picture">
+            <h2 style="color:red;">Chưa nhập mã sinh viên !</h2>
+     
 </div>
 
 <?php } ?>

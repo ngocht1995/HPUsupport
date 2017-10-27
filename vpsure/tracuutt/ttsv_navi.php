@@ -1,52 +1,3 @@
-<style type="text/css">
-  .dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border-radius: 15px;
-    cursor: pointer;
-    width: 200px;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    border-radius: 15px;
-    background-color: rgb(255, 136, 34);
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    
-   border-radius: 15px;
-}
-
-.dropdown-content a:hover {background-color: blue}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-}
-</style>
-
-
-
 
 <?php
 $conn = ew_Connect();
@@ -120,9 +71,10 @@ if ($msv <> "" || $msv <>null )
 
 
 ?>
- <div class="dropdown" style="position: relative;left:70px">
-  <button class="dropbtn" style="background-color:#0a73e0 ">Cá nhân sinh viên</button>
-  <div class="dropdown-content">
+<div class="dropmenu1">
+ <div class="dropdown"  style="position: relative;left:70px;top:120px">
+  <button class="dropbtn"  style="background-color:#0a73e0 "><i class="fa fa-user" style="font-size: 30px"></i><br>Cá nhân sinh viên</button>
+  <div class="dropdown-content" style="background-color: #0a73e0">
     
                   <?php
                     for ($i=0;$i<=$rowswrk;$i++)
@@ -139,7 +91,7 @@ if ($msv <> "" || $msv <>null )
              <script type="text/javascript">
           $(document).ready(function(){
                $("#atracuu<?php echo $arwrk[$i]['services_id']; ?>").click(function () {
-                 $("#htht").html('<center style="margin-top:100px"><img  src="../images/common/ajax-loading.gif">...process...</center>');
+                 $("#htht").html('<div class="gif" ><img  src="../images/common/loading.gif" class="loading-gif"><br>Đang bắt thông tin</div>');
                  $.ajax({
                       type: "POST",
                       data: "msv="+$("#txtmsv").val()+"&ser_code=" + <?php echo $arwrk[$i]['services_id']; ?>,
@@ -158,11 +110,12 @@ if ($msv <> "" || $msv <>null )
           </script> 
   <?php } }?> 
   </div>
+</div>  
 </div>
-         
-<div class="dropdown" style="position: relative;left:70px">
-  <button class="dropbtn" style="background-color: #66b84c">Tài chính sinh viên</button>
-  <div class="dropdown-content">            
+<div class="dropmenu2">
+<div class="dropdown"  style="position: relative;left:70px;top:120px">
+  <button class="dropbtn" style="background-color: #66b84c"><i class="fa fa-credit-card" style="font-size: 30px"></i><br>Tài chính sinh viên</button>
+  <div class="dropdown-content" style="background-color: #66b84c">            
                 <?php
                     for ($i=0;$i<=$rowswrk;$i++)
                     {  
@@ -177,12 +130,12 @@ if ($msv <> "" || $msv <>null )
                           )  
                   {
                  ?>            
-   <a id="atracuu<?php echo $arwrk[$i]['services_id']; ?>"><?php echo $arwrk[$i]['name_ser'] ?></a>
+   <a  id="atracuu<?php echo $arwrk[$i]['services_id']; ?>" ><?php echo $arwrk[$i]['name_ser'] ?></a>
 
                  <script type="text/javascript">
                 $(document).ready(function(){
                      $("#atracuu<?php echo $arwrk[$i]['services_id']; ?>").click(function () {
-                       $("#htht").html('<center style="margin-top:100px"><img  src="../images/common/ajax-loading.gif">...process...</center>');
+                       $("#htht").html('<div class="gif"><img  src="../images/common/loading2.gif" class="loading-gif"><br>Đang tính tiền </div>');
                        $.ajax({
                             type: "POST",
                             data: "msv="+$("#txtmsv").val()+"&ser_code=" + <?php echo $arwrk[$i]['services_id']; ?>,
@@ -203,9 +156,11 @@ if ($msv <> "" || $msv <>null )
     <?php } }?> 
   </div>
 </div>
- <div class="dropdown" style="position: relative;left:70px">
-  <button class="dropbtn" style="background-color: #efae38">Kết quả học tập</button>
-  <div class="dropdown-content">  
+</div>
+<div class="dropmenu3">
+ <div class="dropdown" style="position: relative;left:70px;top:120px">
+  <button class="dropbtn" style="background-color: #efae38"><i class="fa fa-bar-chart" style="font-size: 30px"></i><br>Kết quả học tập</button>
+  <div class="dropdown-content" style="background-color: #efae38">  
                
  <?php
                     for ($i=0;$i<=$rowswrk;$i++)
@@ -227,7 +182,7 @@ if ($msv <> "" || $msv <>null )
               <script type="text/javascript">
               $(document).ready(function(){
                    $("#atracuu<?php echo $arwrk[$i]['services_id']; ?>").click(function () {
-                     $("#htht").html('<center style="margin-top:100px"><img  src="../images/common/ajax-loading.gif">...process...</center>');
+                     $("#htht").html('<div class="gif"><img  src="../images/common/loading3.gif" class="loading-gif"><br>Đang kiểm tra điểm </div>');
                      $.ajax({
                           type: "POST",
                           data: "msv="+$("#txtmsv").val()+"&ser_code=" + <?php echo $arwrk[$i]['services_id']; ?>,
@@ -247,10 +202,12 @@ if ($msv <> "" || $msv <>null )
 
  <?php } }?> 
   </div>
+  </div>
   </div>        
-<div class="dropdown" style="position: relative;left:70px">
-  <button class="dropbtn" style="background-color: #d5554c">Khách sạn sinh viên</button>
-  <div class="dropdown-content">  
+  <div class="dropmenu4">
+<div class="dropdown"  style="position: relative;left:70px;top:120px">
+  <button class="dropbtn" style="background-color: #d5554c"><i class="fa fa-building-o" style="font-size: 30px"></i><br>Khách sạn sinh viên</button>
+  <div class="dropdown-content" style="background-color: #d5554c">  
               <?php
                     for ($i=0;$i<=$rowswrk;$i++)
                     {  
@@ -278,7 +235,7 @@ if ($msv <> "" || $msv <>null )
            $("#txtmsv").val('nhập MSV');
              }
           <?php } ?>              
-        $("#htht").html('<center style="margin-top:100px"><img  src="../images/common/ajax-loading.gif">...process...</center>');
+        $("#htht").html('<div class="gif"><img  src="../images/common/loading4.gif" class="loading-gif"><br>Đang tải</div>');
         $.ajax({
             type: "POST",
             data: "msv="+$("#txtmsv").val()+"&ser_code=" + <?php echo $arwrk[$i]['services_id']; ?>,
@@ -297,8 +254,8 @@ if ($msv <> "" || $msv <>null )
 </script>                
     <?php } }?> 
   </div>  
-    </div>                          
+    </div>   
+    </div>                       
     <!-- end menu body-->      	          
- 
-       
+     
         

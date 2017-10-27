@@ -1,32 +1,6 @@
 <!-- hien thi service cac khoan sinh vien con thieu-->
-<style type="text/css">
-table.sample {
-	border-width: 1px;
-	border-spacing: 2px;
-	border-style: outset;
-	border-color: gray;
-	border-collapse: separate;
-	background-color: white;
-        width: 100%
-}
-table.sample th {
-	border-width: 1px;
-	padding: 1px;
-	border-style: inset;
-	border-color: gray;
-	background-color: white;
 
-}
-table.sample td {
-	border-width: 1px;
-	padding: 1px;
-	border-style: inset;
-	border-color: gray;
-	background-color: white;
-	
-}
-</style>
-<div id="ReportTable1">
+<div id="ReportTable1" style="font-size:15px;">
     <script language="javascript">
         function printform(divid) {
         var printContent = document.getElementById(divid);
@@ -128,14 +102,16 @@ function docso(so)
              $_SESSION['result'] = $result;
              $tong_tien=0;
           ?>
-                    <center>           
-                    <h2 style="font-weight: bold;color:black">CÁC KHOẢN SINH VIÊN CÒN THIẾU </h2>
+  <div id="result" class="tbl_bangdiem">
+
+                    <center><br>           
+                    <h4 style="font-weight: bold">CÁC KHOẢN SINH VIÊN CÒN THIẾU </h4>
                     <?php  $_SESSION['header_title']  ='CÁC KHOẢN SINH VIÊN CÒN THIẾU';
                            $_SESSION['title']  ='CacKhoanSinhVienConThieu';
                     ?>
                       
                     </center>
-
+                    <br>
                <form target="_blank" action="export_cksvct.php" method="post" onsubmit='
                 $("#datatodisplay").val($("<div>").append( $("#ReportTable").eq(0).clone() ).html()); '>
                 <div id="ReportTable" >
@@ -151,20 +127,20 @@ function docso(so)
                           <span> Học Kỳ: </span><?php echo $result[0]['hocKy']; ?>
                        </center> 
                        <?php } ?>
-                   <h2 style="font-weight: bold;color:black">Khoản học phí </h2>  
-                  <table cellpadding="1" cellspacing="0" border="1" class="display dataTable" id="allan" style="font-size: 11px">
-                    <thead>
+                   <h4 style="font-weight: bold;">Học phí </h4>  
+                  <table cellpadding="1" cellspacing="0" border="1" class="display dataTable" id="allan" >
+                  <thead style="background-color:rgba(4, 99, 241, 0.73);color:white;">
                             <tr> 
-                                    <th class="noidung center">Tên khoản</th>
-                                    <th class="center">Số tiền quy định</th>
-                                    <th class="center">Số tiền thay đổi</th>
-                                    <th class="center">Số tiền miễn giảm</th>
-                                    <th class="center">Số tiền kỳ trước chuyển sang</th>
-                                    <th class="center">Số tiền đã thu</th>
-                                    <th class="center">Số tiền phải chi</th>
-                                    <th class="center">Số tiền đã chi</th>
-                                    <th class="center">Số tiền chuyển sang kỳ sau</th>
-                                    <th class="center">Số tiền thiếu (ĐV:VNĐ)</th>
+                                    <th>Tên khoản</th>
+                                    <th>Số tiền quy định</th>
+                                    <th>Số tiền thay đổi</th>
+                                    <th>Số tiền miễn giảm</th>
+                                    <th>Số tiền kỳ trước chuyển sang</th>
+                                    <th>Số tiền đã thu</th>
+                                    <th>Số tiền phải chi</th>
+                                    <th>Số tiền đã chi</th>
+                                    <th>Số tiền chuyển sang kỳ sau</th>
+                                    <th>Số tiền thiếu (ĐV:VNĐ)</th>
                             </tr>
                     </thead>
                      <tbody>
@@ -174,16 +150,16 @@ function docso(so)
                       $tong_tien= $tong_tien+($result['Thieu']);
                    ?>
                               <tr class="gradeX">
-                                    <td><?php echo $result['Ten']; ?></td>
-                                    <td align="center"><?php echo display_number($result['soTienQuyDinh']); ?></td>
-                                    <td><?php echo $result['SoTienThayDoi']; ?></td>
-                                    <td><?php echo $result['soTienMienGiam']; ?></td>
-                                    <td align="center"><?php echo $result['SoTienKyTruocChuyenSang']; ?></td>
-                                    <td align="center"><?php echo $result['SoTienDaThu']; ?></td>
-                                    <td align="center"><?php echo $result['SoTienPhaiChi']; ?></td>
-                                    <td align="center"><?php echo $result['SoTienDaChi']; ?></td>
-                                    <td align="center"><?php echo $result['SoTienChuyenSangKySau']; ?></td>
-                                    <td align="center"><?php echo display_number($result['Thieu']); ?></td>
+                                    <td class="center"><?php echo $result['Ten']; ?></td>
+                                    <td class="center"><?php echo display_number($result['soTienQuyDinh']); ?></td>
+                                    <td class="center"><?php echo $result['SoTienThayDoi']; ?></td>
+                                    <td class="center"><?php echo $result['soTienMienGiam']; ?></td>
+                                    <td class="center"><?php echo $result['SoTienKyTruocChuyenSang']; ?></td>
+                                    <td class="center"><?php echo $result['SoTienDaThu']; ?></td>
+                                    <td class="center"><?php echo $result['SoTienPhaiChi']; ?></td>
+                                    <td class="center"><?php echo $result['SoTienDaChi']; ?></td>
+                                    <td class="center"><?php echo $result['SoTienChuyenSangKySau']; ?></td>
+                                    <td class="center"><?php echo display_number($result['Thieu']); ?></td>
                                 </tr>
                               
                  <?php } else
@@ -193,23 +169,23 @@ function docso(so)
                              $tong_tien= $tong_tien+($result[$i]['Thieu']);
                             ?>
                                <tr class="gradeX">
-                                    <td><?php echo $result[$i]['Ten']; ?></td>
-                                    <td align="center"><?php echo display_number($result[$i]['soTienQuyDinh']); ?></td>
-                                    <td><?php echo $result[$i]['SoTienThayDoi']; ?></td>
-                                    <td><?php echo $result[$i]['soTienMienGiam']; ?></td>
-                                    <td align="center"><?php echo $result[$i]['SoTienKyTruocChuyenSang']; ?></td>
-                                    <td align="center"><?php echo $result[$i]['SoTienDaThu']; ?></td>
-                                    <td align="center"><?php echo $result[$i]['SoTienPhaiChi']; ?></td>
-                                    <td align="center"><?php echo $result[$i]['SoTienDaChi']; ?></td>
-                                    <td align="center"><?php echo $result[$i]['SoTienChuyenSangKySau']; ?></td>
-                                    <td align="center"><?php   echo display_number($result[$i]['Thieu']); ?></td>
+                                    <td class="center"><?php echo $result[$i]['Ten']; ?></td>
+                                    <td class="center"><?php echo display_number($result[$i]['soTienQuyDinh']); ?></td>
+                                    <td class="center"><?php echo $result[$i]['SoTienThayDoi']; ?></td>
+                                    <td class="center"><?php echo $result[$i]['soTienMienGiam']; ?></td>
+                                    <td class="center"><?php echo $result[$i]['SoTienKyTruocChuyenSang']; ?></td>
+                                    <td class="center"><?php echo $result[$i]['SoTienDaThu']; ?></td>
+                                    <td class="center"><?php echo $result[$i]['SoTienPhaiChi']; ?></td>
+                                    <td class="center"><?php echo $result[$i]['SoTienDaChi']; ?></td>
+                                    <td class="center"><?php echo $result[$i]['SoTienChuyenSangKySau']; ?></td>
+                                    <td class="center"><?php   echo display_number($result[$i]['Thieu']); ?></td>
                                 </tr>
                             <?php } ?>         
                      <?php  } ?>
                      </tbody>
                     </table>
                    
-                   <br/>
+                   <br/><br/><br/>
            <div style="clear: both"> <p class="phead_thongbao"><b>Tổng số tiền học phí thiếu: </b><?php echo display_number($tong_tien); ?> (VNĐ)
                    <span style="font-style: italic">  
                     <?php
@@ -225,10 +201,9 @@ function docso(so)
    <div style="clear:both"></div>
 
             <?php } else { ?>
-            <div>
-             <center>
-            <h2 style="line-height:130px;color:red;">Không tồn tại các khoản sinh viên còn thiếu học phí!</h2>
-            </center>
+           <div class="notices"> 
+            <h2 style="color:red;">Không tồn tại các khoản học phí sinh viên còn thiếu!</h2>
+            
             </div>
  <?php } ?>
 
@@ -261,12 +236,12 @@ function docso(so)
                       $tong_tien_x2= $tong_tien_x2+($result['soTienDaNop']);
                    ?>
                               <tr class="gradeX">
-                                    <td align="center"><?php echo $result['MaLop']; ?></td>
-                                    <td align="center"><?php echo $result['MaMonHoc']; ?></td>
+                                    <td class="center"><?php echo $result['MaLop']; ?></td>
+                                    <td class="center"><?php echo $result['MaMonHoc']; ?></td>
                                     <td><?php echo $result['TenMonHoc']; ?></td>
-                                    <td align="center"><?php echo $result['KhoiLuong']; ?></td>
-                                    <td align="center"><?php echo display_number($result['HocPhi']); ?></td>
-                                    <td align="center"><?php echo $result['soTienDaNop']; ?></td>
+                                    <td class="center"><?php echo $result['KhoiLuong']; ?></td>
+                                    <td class="center"><?php echo display_number($result['HocPhi']); ?></td>
+                                    <td class="center"><?php echo $result['soTienDaNop']; ?></td>
                                    
                                 </tr>
                               
@@ -278,12 +253,12 @@ function docso(so)
                              $tong_tien_x2= $tong_tien_x2+($result[$i]['soTienDaNop']);
                             ?>
                                <tr class="gradeX">
-                                    <td align="center"><?php echo $result[$i]['MaLop']; ?></td>
-                                    <td align="center"><?php echo $result[$i]['MaMonHoc']; ?></td>
+                                    <td class="center"><?php echo $result[$i]['MaLop']; ?></td>
+                                    <td class="center"><?php echo $result[$i]['MaMonHoc']; ?></td>
                                     <td><?php echo $result[$i]['TenMonHoc']; ?></td>
-                                    <td align="center"><?php echo $result[$i]['KhoiLuong']; ?></td>
-                                    <td align="center"><?php   echo display_number($result[$i]['HocPhi']); ?></td>
-                                    <td align="center"><?php   echo display_number($result[$i]['soTienDaNop']); ?></td>
+                                    <td class="center"><?php echo $result[$i]['KhoiLuong']; ?></td>
+                                    <td class="center"><?php   echo display_number($result[$i]['HocPhi']); ?></td>
+                                    <td class="center"><?php   echo display_number($result[$i]['soTienDaNop']); ?></td>
                                 </tr>
                             <?php } ?>         
                      <?php  } ?>
@@ -293,8 +268,8 @@ function docso(so)
                      <td colspan="3">
                    
                      </td>
-                     <td align="center"><?php echo display_number($tong_tien_x1); ?></td>
-                     <td align="center"><?php echo display_number($tong_tien_x2); ?></td>
+                     <td class="center"><?php echo display_number($tong_tien_x1); ?></td>
+                     <td class="center"><?php echo display_number($tong_tien_x2); ?></td>
                      </tfoot>
                     </table>
    
@@ -327,10 +302,10 @@ function docso(so)
                       $tong_tien_x4 = $tong_tien_x4+($result['HocPhiDaNop']);
                    ?>
                               <tr class="gradeX">
-                                    <td align="center"><?php echo $result['maMonHoc']; ?></td>
+                                    <td class="center"><?php echo $result['maMonHoc']; ?></td>
                                     <td><?php echo $result['TenMonHoc']; ?></td>
-                                    <td align="center"><?php echo display_number($result['HocPhiHocLai']); ?></td>
-                                    <td align="center"><?php echo display_number($result['HocPhiDaNop']); ?></td>
+                                    <td class="center"><?php echo display_number($result['HocPhiHocLai']); ?></td>
+                                    <td class="center"><?php echo display_number($result['HocPhiDaNop']); ?></td>
                                 </tr>
                               
                  <?php } else
@@ -341,10 +316,10 @@ function docso(so)
                              $tong_tien_x4= $tong_tien_x4+($result[$i]['HocPhiDaNop']);
                             ?>
                                <tr class="gradeX">
-                                    <td align="center"><?php echo $result[$i]['maMonHoc']; ?></td>
+                                    <td class="center"><?php echo $result[$i]['maMonHoc']; ?></td>
                                     <td><?php echo $result[$i]['TenMonHoc']; ?></td>
-                                    <td align="center"><?php   echo display_number($result[$i]['HocPhiHocLai']); ?></td>
-                                    <td align="center"><?php   echo display_number($result[$i]['HocPhiDaNop']); ?></td>
+                                    <td class="center"><?php   echo display_number($result[$i]['HocPhiHocLai']); ?></td>
+                                    <td class="center"><?php   echo display_number($result[$i]['HocPhiDaNop']); ?></td>
                                 </tr>
                             <?php } ?>         
                      <?php  } ?>
@@ -352,8 +327,8 @@ function docso(so)
                      <tfoot>
                      <td> <b>Tổng: </b></td>
                      <td> </td>
-                     <td align="center"><?php echo display_number($tong_tien_x3); ?></td>
-                     <td align="center"><?php echo display_number($tong_tien_x4); ?></td>
+                     <td class="center"><?php echo display_number($tong_tien_x3); ?></td>
+                     <td class="center"><?php echo display_number($tong_tien_x4); ?></td>
                      </tfoot>
                     </table>
    
@@ -387,10 +362,10 @@ function docso(so)
                       $tong_tien_x4 = $tong_tien_x4+($result['HocPhiDaNop']);
                    ?>
                               <tr class="gradeX">
-                                    <td align="center"><?php echo $result['maMonHoc']; ?></td>
+                                    <td class="center"><?php echo $result['maMonHoc']; ?></td>
                                     <td><?php echo $result['TenMonHoc']; ?></td>
-                                    <td align="center"><?php echo display_number($result['HocPhiHocLai']); ?></td>
-                                    <td align="center"><?php echo display_number($result['HocPhiDaNop']); ?></td>
+                                    <td class="center"><?php echo display_number($result['HocPhiHocLai']); ?></td>
+                                    <td class="center"><?php echo display_number($result['HocPhiDaNop']); ?></td>
                                 </tr>
                               
                  <?php } else
@@ -401,10 +376,10 @@ function docso(so)
                              $tong_tien_x4= $tong_tien_x4+($result[$i]['HocPhiDaNop']);
                             ?>
                                <tr class="gradeX">
-                                    <td align="center"><?php echo $result[$i]['maMonHoc']; ?></td>
+                                    <td class="center"><?php echo $result[$i]['maMonHoc']; ?></td>
                                     <td><?php echo $result[$i]['TenMonHoc']; ?></td>
-                                    <td align="center"><?php   echo display_number($result[$i]['HocPhiHocLai']); ?></td>
-                                    <td align="center"><?php   echo display_number($result[$i]['HocPhiDaNop']); ?></td>
+                                    <td class="center"><?php   echo display_number($result[$i]['HocPhiHocLai']); ?></td>
+                                    <td class="center"><?php   echo display_number($result[$i]['HocPhiDaNop']); ?></td>
                                 </tr>
                             <?php } ?>         
                      <?php  } ?>
@@ -412,8 +387,8 @@ function docso(so)
                      <tfoot>
                      <td> <b>Tổng: </b></td>
                      <td> </td>
-                     <td align="center"><?php echo display_number($tong_tien_x3); ?></td>
-                     <td align="center"><?php echo display_number($tong_tien_x4); ?></td>
+                     <td class="center"><?php echo display_number($tong_tien_x3); ?></td>
+                     <td class="center"><?php echo display_number($tong_tien_x4); ?></td>
                      </tfoot>
                     </table>
    
@@ -431,24 +406,24 @@ function docso(so)
              $_SESSION['result'] = $result;
              $tong_tien=0;
           ?>     
- <h2 style="font-weight: bold;color:black;margin-top: 10px;">Khoản tại khách sạn sinh viên </h2>  
+ <h4 style="font-weight: bold;color:white;margin-top: 10px;">Khoản tại khách sạn sinh viên </h4>  
                <form target="_blank" action="export_cksvct.php" method="post" onsubmit='
                 $("#datatodisplay").val($("<div>").append( $("#ReportTable").eq(0).clone() ).html()); '>
                 <div id="ReportTable" > 
-                    <table cellpadding="1" cellspacing="0" border="1" class="display dataTable" id="allan" style="font-size: 11px">
-                    <thead>
+                    <table cellpadding="1" cellspacing="0" border="1" class="display dataTable" id="allan" >
+                     <thead style="background-color:rgba(4, 99, 241, 0.73);color:white">
                             <tr> 
                                   
-                                    <th class="noidung center">Tên khoản</th>
-                                    <th class="center">Số tiền quy định</th>
-                                    <th class="center">Số tiền thay đổi</th>
-                                    <th class="center">Số tiền miễn giảm</th>
-                                    <th class="center">Số tiền kỳ trước chuyển sang</th>
-                                    <th class="center">Số tiền đã thu</th>
-                                    <th class="center">Số tiền phải chi</th>
-                                    <th class="center">Số tiền đã chi</th>
-                                    <th class="center">Số tiền chuyển sang kỳ sau</th>
-                                    <th class="center">Số tiền còn thiếu (VNĐ)</th>
+                                    <th>Tên khoản</th>
+                                    <th>Số tiền quy định</th>
+                                    <th>Số tiền thay đổi</th>
+                                    <th>Số tiền miễn giảm</th>
+                                    <th>Số tiền kỳ trước chuyển sang</th>
+                                    <th>Số tiền đã thu</th>
+                                    <th>Số tiền phải chi</th>
+                                    <th>Số tiền đã chi</th>
+                                    <th>Số tiền chuyển sang kỳ sau</th>
+                                    <th>Số tiền còn thiếu (VNĐ)</th>
                             </tr>
                     </thead>
                      <tbody>
@@ -459,16 +434,16 @@ function docso(so)
                    ?>
                               <tr class="gradeX">
                                    
-                                    <td><?php echo $result['Ten']; ?></td>
-                                    <td align="center"><?php echo display_number($result['soTienQuyDinh']); ?></td>
-                                    <td><?php echo $result['SoTienThayDoi']; ?></td>
-                                    <td><?php echo $result['soTienMienGiam']; ?></td>
-                                    <td align="center"><?php echo $result['SoTienKyTruocChuyenSang']; ?></td>
-                                    <td align="center"><?php echo  display_number($result['SoTienDaThu']); ?></td>
-                                    <td align="center"><?php echo $result['SoTienPhaiChi']; ?></td>
-                                    <td align="center"><?php echo $result['SoTienDaChi']; ?></td>
-                                    <td align="center"><?php echo $result['SoTienChuyenSangKySau']; ?></td>
-                                    <td align="center"><?php echo display_number($result['Thieu']); ?></td>
+                                    <td class="center"><?php echo $result['Ten']; ?></td>
+                                    <td class="center"><?php echo display_number($result['soTienQuyDinh']); ?></td>
+                                    <td class="center"><?php echo $result['SoTienThayDoi']; ?></td>
+                                    <td class="center"><?php echo $result['soTienMienGiam']; ?></td>
+                                    <td class="center"><?php echo $result['SoTienKyTruocChuyenSang']; ?></td>
+                                    <td class="center"><?php echo  display_number($result['SoTienDaThu']); ?></td>
+                                    <td class="center"><?php echo $result['SoTienPhaiChi']; ?></td>
+                                    <td class="center"><?php echo $result['SoTienDaChi']; ?></td>
+                                    <td class="center"><?php echo $result['SoTienChuyenSangKySau']; ?></td>
+                                    <td class="center"><?php echo display_number($result['Thieu']); ?></td>
                                 </tr>
                  <?php } else
                          {  
@@ -477,17 +452,17 @@ function docso(so)
                              $tong_tien= $tong_tien+($result[$i]['Thieu']);
                             ?>
                                <tr class="gradeX">
-                                    <td><?php echo $result[$i]['namHoc']; ?></td>
-                                    <td><?php echo $result[$i]['Ten']; ?></td>
-                                    <td align="center"><?php echo display_number($result[$i]['soTienQuyDinh']); ?></td>
-                                    <td><?php echo $result[$i]['SoTienThayDoi']; ?></td>
-                                    <td><?php echo $result[$i]['soTienMienGiam']; ?></td>
-                                    <td align="center"><?php echo $result[$i]['SoTienKyTruocChuyenSang']; ?></td>
-                                    <td align="center"><?php echo  display_number($result[$i]['SoTienDaThu']); ?></td>
-                                    <td align="center"><?php echo $result[$i]['SoTienPhaiChi']; ?></td>
-                                    <td align="center"><?php echo $result[$i]['SoTienDaChi']; ?></td>
-                                    <td align="center"><?php echo $result[$i]['SoTienChuyenSangKySau']; ?></td>
-                                    <td align="center"><?php echo display_number($result[$i]['Thieu']); ?></td>
+                                    <td class="center"><?php echo $result[$i]['namHoc']; ?></td>
+                                    <td class="center"><?php echo $result[$i]['Ten']; ?></td>
+                                    <td class="center"><?php echo display_number($result[$i]['soTienQuyDinh']); ?></td>
+                                    <td class="center"><?php echo $result[$i]['SoTienThayDoi']; ?></td>
+                                    <td class="center"><?php echo $result[$i]['soTienMienGiam']; ?></td>
+                                    <td class="center"><?php echo $result[$i]['SoTienKyTruocChuyenSang']; ?></td>
+                                    <td class="center"><?php echo  display_number($result[$i]['SoTienDaThu']); ?></td>
+                                    <td class="center"><?php echo $result[$i]['SoTienPhaiChi']; ?></td>
+                                    <td class="center"><?php echo $result[$i]['SoTienDaChi']; ?></td>
+                                    <td class="center"><?php echo $result[$i]['SoTienChuyenSangKySau']; ?></td>
+                                    <td class="center"><?php echo display_number($result[$i]['Thieu']); ?></td>
                                 </tr>
                             <?php } 
                  } ?>
@@ -502,14 +477,14 @@ function docso(so)
                    </span>
                        
                        </p></div>
-               <div style="padding:30px 0px 10px 0px">
-            
-                </div>
+               
                 </div>
                 
             </form>
- <div style="clear:both"></div>
+<div style="padding:30px 0px 10px 0px;" class="export"> </div>
+        
 
+ <div style="clear:both"></div>
             <?php }  ?>
     <center>
       
